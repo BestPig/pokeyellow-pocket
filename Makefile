@@ -1,4 +1,4 @@
-roms := pokeyellow.gbc pokeyellow_debug.gbc
+roms := pokeyellow.pocket pokeyellow_debug.pocket
 
 rom_obj := \
 audio.o \
@@ -40,15 +40,15 @@ RGBLINK ?= $(RGBDS)rgblink
 .PHONY: all yellow yellow_debug clean tidy compare tools
 
 all: $(roms)
-yellow:       pokeyellow.gbc
-yellow_debug: pokeyellow_debug.gbc
+yellow:       pokeyellow.pocket
+yellow_debug: pokeyellow_debug.pocket
 
 clean: tidy
 	find gfx \( -iname '*.1bpp' -o -iname '*.2bpp' -o -iname '*.pic' \) -delete
 	find audio/pikachu_cries \( -iname '*.pcm' \) -delete
 
 tidy:
-	rm -f $(roms) $(pokeyellow_obj) $(pokeyellow_debug_obj) $(roms:.gbc=.map) $(roms:.gbc=.sym) rgbdscheck.o
+	rm -f $(roms) $(pokeyellow_obj) $(pokeyellow_debug_obj) $(roms:.pocket=.map) $(roms:.pocket=.sym) rgbdscheck.o
 	$(MAKE) clean -C tools/
 
 compare: $(roms)
@@ -96,9 +96,9 @@ endif
 pokeyellow_pad       = 0x00
 pokeyellow_debug_pad = 0xff
 
-opts = -cjsv -k 01 -l 0x33 -m 0x1b -p 0 -r 03 -t "POKEMON YELLOW"
+opts = -cjs -k 01 -l 0x33 -m 0x1b -p 0 -r 03 -t "POKEMON YELLOW" -f hg
 
-%.gbc: $$(%_obj) layout.link
+%.pocket: $$(%_obj) layout.link
 	$(RGBLINK) -p $($*_pad) -w -m $*.map -n $*.sym -l layout.link -o $@ $(filter %.o,$^)
 	$(RGBFIX) -p $($*_pad) $(opts) $@
 

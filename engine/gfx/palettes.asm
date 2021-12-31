@@ -690,7 +690,7 @@ CopyGfxToSuperNintendoVRAM:
 	add hl, de
 	dec c
 	jr nz, .loop
-	ld a, $e3
+	ld a, $c7
 	ldh [rLCDC], a
 	pop hl
 	call SendSGBPacket
@@ -850,7 +850,7 @@ TransferCurBGPData::
 	ldh [rBGPI], a
 	ld de, rBGPD
 	ld hl, wGBCPal
-	ld b, %10 ; mask for non-V-blank/non-H-blank STAT mode
+	ld b, %01000000 ; mask for non-V-blank/non-H-blank STAT mode
 	ldh a, [rLCDC]
 	and rLCDC_ENABLE_MASK
 	jr nz, .lcdEnabled
@@ -926,7 +926,7 @@ TransferCurOBPData:
 	ldh [rOBPI], a
 	ld de, rOBPD
 	ld hl, wGBCPal
-	ld b, %10 ; mask for non-V-blank/non-H-blank STAT mode
+	ld b, %01000000 ; mask for non-V-blank/non-H-blank STAT mode
 	ldh a, [rLCDC]
 	and rLCDC_ENABLE_MASK
 	jr nz, .lcdEnabled

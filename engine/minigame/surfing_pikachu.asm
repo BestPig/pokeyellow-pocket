@@ -17,7 +17,7 @@ SurfingPikachuMinigame::
 	ldh [rIF], a
 	ld a, $f
 	ldh [rIE], a
-	ld a, $8
+	ld a, $10
 	ldh [rSTAT], a
 	ldh a, [hAutoBGTransferDest + 1]
 	push af
@@ -250,7 +250,7 @@ SurfingPikachuMinigame_LoadGFXAndLayout:
 	call FillMemory
 	call Func_f81ff
 	call Func_f8256
-	ld a, $e3
+	ld a, $c7
 	ldh [rLCDC], a
 	call SurfingPikachuMinigame_SetBGPals
 	ld a, $e4
@@ -2364,7 +2364,7 @@ SurfingPikachuMinigameIntro:
 	ldh [hWY], a
 	ld b, $f
 	call RunPaletteCommand
-	ld a, $e3
+	ld a, $c7
 	ldh [rLCDC], a
 	ld a, $1
 	ldh [hAutoBGTransferEnabled], a

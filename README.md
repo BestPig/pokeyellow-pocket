@@ -2,10 +2,10 @@
 
 This is a disassembly of Pokémon Yellow.
 
-It builds the following ROMs:
+It builds the following ROMs for Analogue Pocket GB Studio mode:
 
-- Pokemon Yellow (UE) [C][!].gbc  `sha1: cc7d03262ebfaf2f06772c1a480c7d9d5f4a38e1`
-- YELLMONS.GB (debug build) `sha1: d44e96eddfbdad633cbe4e6e64915e9e198974b0`
+- Pokemon Yellow (UE) [C][!].pocket  `sha1: 97c297940eb9f3e1270993a37c16c2144cc508ee`
+- YELLMONS.pocket (debug build) `sha1: 352e99895cf451559ff6884207ac8ab2e0e83cc3`
 
 To set up the repository, see [**INSTALL.md**](INSTALL.md).
 

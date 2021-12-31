@@ -43,7 +43,7 @@ LoadBGMapAttributes::
 	jr nz, .waitForVBlankLoop1
 .waitForAccessibleVRAMLoop1
 	ldh a, [rSTAT]
-	and %10 ; are we in HBlank or VBlank?
+	and %01000000 ; are we in HBlank or VBlank?
 	jr nz, .waitForAccessibleVRAMLoop1 ; loop until we're in a safe period to transfer to VRAM
 .lcdOff
 	ld a, c ; number of BG attributes to transfer, plus 1 times 16
@@ -77,7 +77,7 @@ LoadBGMapAttributes::
 	jr nz, .waitForVBlankLoop2
 .waitForAccessibleVRAMLoop2
 	ldh a, [rSTAT]
-	and %10 ; are we in HBlank or VBlank?
+	and %01000000 ; are we in HBlank or VBlank?
 	jr nz, .waitForAccessibleVRAMLoop2 ; loop until we're in a safe period to transfer to VRAM
 .lcdOff2
 	ld a, c

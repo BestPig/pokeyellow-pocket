@@ -5,7 +5,7 @@ PlayIntroScene:
 	ldh [rIF], a
 	ld a, $f
 	ldh [rIE], a
-	ld a, $8
+	ld a, $10
 	ldh [rSTAT], a
 	call InitYellowIntroGFXAndMusic
 	call DelayFrame
@@ -761,7 +761,7 @@ Func_f9e9a:
 	ldh [hSCY], a
 	ld a, $90
 	ldh [hWY], a
-	ld a, $e3
+	ld a, $c7
 	ldh [rLCDC], a
 	ld a, $e4
 	ldh [rBGP], a

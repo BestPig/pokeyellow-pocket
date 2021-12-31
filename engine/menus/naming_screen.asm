@@ -331,7 +331,7 @@ LoadEDTile:
 	ld c, $4 ; number of copies needed
 .waitForHBlankLoop
 	ldh a, [rSTAT]
-	and %10 ; in HBlank?
+	and %01000000 ; in HBlank?
 	jr nz, .waitForHBlankLoop
 	ld a, [de]
 	ld [hli], a
